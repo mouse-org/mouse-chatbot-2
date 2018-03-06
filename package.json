@@ -1,0 +1,25 @@
+{
+  "name": "mouse-chatbot-2",
+  "version": "2.0.0",
+  "description": "A Chatbot for Mouse Curriculum",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "uuid": "^3.2.1"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://github.com/mouse-org/mouse-chatbot-2"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
