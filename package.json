@@ -1,7 +1,7 @@
 {
-  "name": "pwbot2",
+  "name": "mouse-chatbot-2",
   "version": "2.0.0",
-  "description": "A bot for Patrick Weaver",
+  "description": "A Chatbot for Mouse Curriculum",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -14,7 +14,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://github.com/mouse-org/mouse-chatbot-2"
   },
   "license": "MIT",
   "keywords": [
