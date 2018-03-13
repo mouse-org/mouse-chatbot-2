@@ -8,6 +8,14 @@ body {
   font-family: sans-serif;
 }
 
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
 #app {
   height: 100%;
   width: 100%;
@@ -17,7 +25,15 @@ body {
   display: block;
 }
 
-#messages {
+#chat {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  position: fixed;
+}
+
+
+#log-messages {
   background-color: #DDD;
   width: 100%;
   height: 70%;
@@ -40,19 +56,54 @@ body {
   font-size: 150%;
 }
 
-#messages > ul {
+#log-messages > ul {
   list-style-type: none;
   padding: 0;
 }
 
-.message {
+.log-message {
   border: 1px solid black;
   padding: .5em 3%;
   margin-bottom: .5em;
+  width: 70%;
+}
+
+.person-message {
+  margin-left: 30%;
+  background-color: #8F8;
+}
+
+.bot-message {
+  margin-right: 30%;
+  background-color: #DFD;
 }
 
 .message p {
   margin: 0;
+}
+
+.time {
+  color: #444;
+  font-size: 75%;
+}
+
+
+#script {
+  display: inline-block;
+  width: 30%;
+  background-color: pink;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.script-message {
+  border: 1px solid black;
+  padding: .5em;
+  margin: .25em;
+  background-color: #8FF;
+  cursor: move;
 }
 
 

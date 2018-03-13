@@ -7,9 +7,6 @@ var botScript = [
 var botChatCount = 0;
 
 
-
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +16,8 @@ class App extends React.Component {
     
     this.state = {
       guestName: "Guest",
-      chatData: []
+      chatData: [],
+      scriptData: this.props.botScript
     }
     // 🚸 This is duplicated below, probably shouldn't be.
     var chatData = {
@@ -38,6 +36,7 @@ class App extends React.Component {
   newGuestChat(newMessage) {
     var guestChat = {
       author: this.state.guestName,
+      authorType: "person",
       message: newMessage,
       timestamp: Date()
     }
@@ -46,25 +45,22 @@ class App extends React.Component {
     
     setTimeout(() => {
       this.newBotChat();
-    }, 2000);
+    }, 1000);
   }
   
   newBotChat() {
     var botChat =  {
       author: "Bot",
+      authorType: "bot",
       message: botScript[botChatCount],
       timestamp: Date()
     }
     botChatCount += 1;
     
-    this.updateData(botChat);
-    
-  }
+    this.updateData(botChat); 
+  }  
   
-  
-  componentDidMount() {
-    
-    
+  componentDidMount() {    
   }
   
   componentWillUnmount() {
@@ -73,19 +69,53 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <Messages pollInterval={500} data={this.state.chatData} />
-        <Compose onNewChat={this.newGuestChat} />
+        <div id="chat">
+          <Log pollInterval={500} data={this.state.chatData} />
+          <Compose onNewChat={this.newGuestChat} />
+        </div>
+        <div id="script">
+          <Script data={this.state.scriptData} />
+        </div>
       </div>   
     )
   }
 }
 
 
-class Messages extends React.Component {
+class Log extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = { 
+    }
+  }
+  
+  componentDidMount() {    
+  }
+  
+  componentWillUnmount() {
+  }
+  
+  render() {
+    console.log(this.props.data);
+    const messages = this.props.data.map((message, index) => {
+      <Message message={message} key={index} type="log" />    
+    }
+    );
     
+    return (
+      <div id="log-messages">
+        <ul>
+          {messages}
+        </ul>
+      </div>
+    )
+  }
+}
+
+class Script extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
     }
   }
   
@@ -97,11 +127,11 @@ class Messages extends React.Component {
   
   render() {
     const messages = this.props.data.map((message, index) =>
-      <Message message={message} key={index}/>                       
+      <Message message={message} key={index} type="script" />                       
     );
     
     return (
-      <div id="messages">
+      <div id="script-messages">
         <ul>
           {messages}
         </ul>
@@ -114,32 +144,37 @@ class Messages extends React.Component {
 class Message extends React.Component {
   constructor(props) {
     super(props);
-    
   }
   
-  componentDidMount() {
-    
+  componentDidMount() {   
   }
   
-  componentWillUnmount() {
-    
+  componentWillUnmount() {  
   }
   
   render() {
+    const author = <p className="author"><strong>{this.props.message.author}</strong></p>
+    const time =  <p className="time"><em>{this.props.message.timestamp}</em></p>
+    
+    
     // Was using this to use linebreaks in spades app: {nl2br(this.props.message.text)}
-    return (
-      <li className="message">
-        <p className="author">
-          {this.props.message.author}
-        </p>
-        <p className="message-text">
-          {this.props.message.message}
-        </p>
-        <p className="time">
-          {this.props.message.timestamp}
-        </p>
-      </li>  
-    ) 
+    if (this.props.type === "log") {
+      const messageText = <p className="message-text">{this.props.message.message}</p>
+      return (
+        <li className={"log-message message " + this.props.message.authorType + "-message"}>
+          {author}
+          {time}
+          {messageText}
+        </li>  
+      )
+    } else {
+      const messageText = <p className="message-text">{this.props.message}</p>
+      return (
+        <li className="script-message message">
+          {messageText}
+        </li>
+      )
+    }
   }
 }
 
@@ -165,6 +200,6 @@ function Compose(props) {
 }
 
 ReactDOM.render(
-  <App />,
+  <App botScript={botScript} />,
   document.getElementById('root')
 );
