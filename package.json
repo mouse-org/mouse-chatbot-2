@@ -1,14 +1,20 @@
 {
   "name": "mouse-chatbot-2",
-  "version": "2.0.0",
-  "description": "A Chatbot for Mouse Curriculum",
+  "version": "2.0.1",
+  "description": "A drag and Drop Chatbot Generator",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack",
+    "start": "webpack && node server.js"
   },
   "dependencies": {
-    "express": "^4.16.2",
-    "uuid": "^3.2.1"
+    "express": "^4.15.4",
+    "jsx-loader": "^0.13.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.5.5",
+    "jquery": "^3.3.1",
+    "react-dragula": "^1.1.17"
   },
   "engines": {
     "node": "8.x"
@@ -16,7 +22,6 @@
   "repository": {
     "url": "https://github.com/mouse-org/mouse-chatbot-2"
   },
-  "license": "MIT",
   "keywords": [
     "node",
     "glitch",
