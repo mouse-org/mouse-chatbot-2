@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+
+ul li {
+  list-style: none;
+}
+
+li.gu-mirror {
+  list-style: none;
+}
+
+ul, ol {
+  padding: 0;
+}
+
+ol {
+  margin: 20px 10px 0 20px;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+#chat {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  position: fixed;
+}
+
+
+#log-messages {
+  background-color: #DDD;
+  width: 100%;
+  height: 70%;
+  display: inline-block;
+  overflow: scroll;
+}
+
+#compose {
+  background-color: #AAA;
+  width: 100%;
+  height: 30%;
+  display: inline-block;
+  padding: 1em 3%;
+  text-align: right;
+}
+
+#compose > textarea#compose-message {
+  width: 100%;
+  height: 85%;
+  font-size: 150%;
+}
+
+#log-messages > ul {
+  list-style-type: none;
+  padding: 0 0 1em;
+}
+
+.log-message {
+  border: 1px solid black;
+  padding: .5em 3%;
+  margin-bottom: .5em;
+  width: 70%;
+}
+
+.person-message {
+  margin-left: 30%;
+  background-color: #8F8;
+}
+
+.bot-message {
+  margin-right: 30%;
+  background-color: #DFD;
+}
+
+.message p {
+  margin: 0;
+}
+
+.time {
+  color: #444;
+  font-size: 75%;
+}
+
+
+#script {
+  display: inline-block;
+  width: 30%;
+  background-color: pink;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+#script h2 {
+  text-align: center;
+}
+
+.script-message {
+  border: 1px solid black;
+  padding: .5em;
+  margin: .25em;
+  background-color: #FF8;
+  cursor: move;
+}
+
+.script-message-text, .script-message-input {
+  width: 95%;
+  display: inline-block;
+}
+
+.script-message-input {
+  font-size: 110%;
+  line-height: 110%;
+}
+
+.script-button {
+  width: 5%; 
+  display: inline-block;
+  cursor: pointer;
+}
+
+#new-script-message {
+  margin: 0 5% 0 85%;
+  border: 2px solid black;
+  font-size: 200%;
+  line-height: 80%;
+  background-color: #4BF;
+  border-radius: 50px;
+  padding: 1.5% 2%;
+  text-align: center;
+  width: 10%;
+  cursor: pointer;
+}
+
+
+@media (max-width: 960px) {
+  body {
+    font-size: 100%;
+  }
+  
+  #compose > textarea#compose-message {
+    height: 80%;
+    font-size: 125%;
+  }
+  
+  
+}

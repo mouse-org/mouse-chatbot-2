@@ -1,0 +1,30 @@
+{
+  "name": "mouse-chatbot-2",
+  "version": "2.0.1",
+  "description": "A drag and Drop Chatbot Generator",
+  "main": "server.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack && node server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "jsx-loader": "^0.13.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.5.5",
+    "jquery": "^3.3.1",
+    "react-dragula": "^1.1.17"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://github.com/mouse-org/mouse-chatbot-2"
+  },
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
